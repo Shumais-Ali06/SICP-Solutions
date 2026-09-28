@@ -4,6 +4,7 @@
 ; Below is a sequence of expressions. What is the result presented by the
 ; interpreter in response to each expression? Assume that the sequence is to be
 ; evaluated in the order in which it is presented.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 10
 (+ 5 3 4)
@@ -19,12 +20,12 @@
     a)
 
 (cond ((= a 4) 6)
-    ((= b 4) (+ 6 7 a))
-    (else 25))
+      ((= b 4) (+ 6 7 a))
+      (else 25))
 
 (+ 2 (if (> b a) b a))
 
 (* (cond ((> a b) a)
-        ((< a b) b)
-        (else -1))
-    (+ a 1))
+         ((< a b) b)
+         (else -1))
+   (+ a 1))

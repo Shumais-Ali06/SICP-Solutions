@@ -1,17 +1,20 @@
 #lang sicp
 
 ; Exercise 1.11:
-; A function f is defined by the rule that
+; A function `f` is defined by the rule that
 ;
 ; f(n) = { n                               , if n < 3
 ;        { f(n - 1) + 2f(n - 2) + 3f(n - 3), if n >= 3
 ;
-; Write a procedure that computes f by means of an recursive process. Write a
-; procedure that computes f by means of an iterative process.
+; Write a procedure that computes `f` by means of an recursive process. Write a
+; procedure that computes `f` by means of an iterative process.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Helper function to get the next number in the sequence
 (define (next a b c)
-    (+ (* 3 a) (* 2 b) c))
+    (+ (* 3 a)
+       (* 2 b)
+       c))
 
 ; Recursive implementation
 (define (f-recursive n)

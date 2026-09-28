@@ -5,6 +5,7 @@
 ; the following numbers: 199, 1999, 19999.
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+; Provided definitions
 (define (square x)
     (* x x))
 
@@ -12,11 +13,12 @@
 
 (define (find-divisor n test-divisor)
     (cond ((> (square test-divisor) n) n)
-            ((divides? test-divisor n) test-divisor)
-            (else (find-divisor n (+ test-divisor 1)))))
+          ((divides? test-divisor n) test-divisor)
+          (else (find-divisor n (+ test-divisor 1)))))
 
 (define (divides? a b) (= (remainder b a) 0))
 
+; Tests
 (smallest-divisor 199)
 (smallest-divisor 1999)
 (smallest-divisor 19999)

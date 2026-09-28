@@ -1,17 +1,17 @@
 #lang sicp
 
 ; Exercise 1.7:
-; The 'good-enough?' test used in computing square roots will not be very
+; The `good-enough?` test used in computing square roots will not be very
 ; effective for finding the square roots of very small numbers. Also, in real
 ; computers, arithmetic operations are almost always performed with limited
 ; precision. This makes our test inadequate for very large numbers. Explain
 ; these statements, with examples showing how the test fails for small and large
-; numbers. An alternative strategy for implementing 'good-enough?' is to watch
-; how 'guess' changes from one iteration to the next and to stop when the change
+; numbers. An alternative strategy for implementing `good-enough?` is to watch
+; how `guess` changes from one iteration to the next and to stop when the change
 ; is a small fraction of the guess. Design a square-root procedure that uses
 ; this kind of test. Does this work better for small and large numbers.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; We reuse the earlier provided definitions from the book
 
 (define (square x)
@@ -34,13 +34,10 @@
 (define (sqrt x)
     (sqrt-iter 1.0 x))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Numbers for testing
-
+; Useful numbers for testing
 (define million 1000000)
 (define millionth 0.000001)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (display "Tests using original 'good-enough?':")
 (newline)
 
@@ -54,7 +51,6 @@
 
 (newline)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Define the new versions of the required functions.
 ; These are appended with '-v1' to indicate changes
 
@@ -70,7 +66,6 @@
 (define (sqrt-v1 x)
     (sqrt-iter-v1 -1.0 1.0 x))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (display "Tests using 'good-enough?-v1':")
 (newline)
 

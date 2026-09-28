@@ -11,7 +11,7 @@
 ;
 ; Use this formula to implement a cube-root procedure analogous to the square-
 ; root procedure.
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define epsilon 0.00000001)
 
@@ -26,8 +26,8 @@
 
 (define (improve guess x)
     (/ (+ (/ x (square guess))
-        (* 2 guess))
-        3))
+          (* 2 guess))
+       3))
 
 (define (cube-root-iter guess x)
     (if (good-enough? guess x)
@@ -37,23 +37,26 @@
 (define (cube-root x)
     (cube-root-iter 1.0 x))
 
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; Now it's time to test our function
-
+; Useful numbers for testing
 (define million 1000000)
 (define millionth 0.000001)
 
+(display "Tests for very small numbers")
+(newline)
 (cube-root millionth)
 (cube-root (cube-root millionth))
 (cube-root (cube-root (cube-root millionth)))
 (newline)
 
+(display "Tests for very large numbers")
+(newline)
 (cube-root million)
 (cube-root (cube million))
 (cube-root (* 64 (cube (cube million))))
 (newline)
 
+(display "Tests for medium-sized numbers")
+(newline)
 (cube-root 2)
 (cube-root 100)
 (cube-root 125)
