@@ -1,7 +1,7 @@
 #lang sicp
 
-; Exercise 1.31:
-; a. The `sum` procedure is only the simplest of a vast number of similar
+; Exercise 1.31 (a):
+; The `sum` procedure is only the simplest of a vast number of similar
 ; abstractions that can be captured as higher-order procedures. Write an
 ; analogous procedure called `product` that returns the product of the values of
 ; a function at points over a given range. Show how to define `factorial` in
