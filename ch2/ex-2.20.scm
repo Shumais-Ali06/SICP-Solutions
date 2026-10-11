@@ -36,31 +36,22 @@
 ; > (2 4 6)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define (append-to-list items x)
-    (if (null? items)
-        (cons x nil)
-        (cons (car items)
-              (append-to-list (cdr items)
-                              x))))
-
-; TODO: Improve this procedure to avoid walking the list from the beginning
-; every time an append is required
+; Process the list in linear time avoiding repeated walks from the beginning.
+; This produces a linear recursive process; recursion depth grows with `w`.
 (define (same-parity x . w)
     (define (parity-match? y)
         (or (and (odd? x) (odd? y))
             (and (even? x) (even? y))))
 
-    (define (iter items result)
+    (define (iter items)
         (if (null? items)
-            result
+            nil
             (if (parity-match? (car items))
-                (iter (cdr items)
-                      (append-to-list result
-                                      (car items)))
-                (iter (cdr items)
-                      result))))
+                (cons (car items)
+                      (iter (cdr items)))
+                (iter (cdr items)))))
 
-    (iter w (list x)))
+    (cons x (iter w)))
 
 ; Tests
 
