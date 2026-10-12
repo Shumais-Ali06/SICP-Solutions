@@ -18,8 +18,8 @@
 
 ; We could then call cc as follows:
 ;
-; (cc 100 us-coins)
-; > 292
+; > (cc 100 us-coins)
+; 292
 ;
 ; To do this will require changing the program `cc` somewhat. It will still have
 ; the same form, but it will access its second argument differently, as follows:

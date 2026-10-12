@@ -6,8 +6,8 @@
 ; implements composition. For example, if `inc` is a procedure that adds 1 to
 ; its argument,
 ;
-; ((compose square inc) 6)
-; > 49
+; > ((compose square inc) 6)
+; 49
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (compose f g)

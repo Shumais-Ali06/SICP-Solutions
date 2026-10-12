@@ -12,10 +12,10 @@
 
 ; Eva demonstrates the prpgram for Alyssa:
 ;
-; (new-if (= 2 3) 0 5)
+; > (new-if (= 2 3) 0 5)
 ; 5
 ;
-; (new-if (= 1 1) 0 5)
+; > (new-if (= 1 1) 0 5)
 ; 0
 ;
 ; Delighted, Alyssa uses new-if to rewrite the square-root program:
