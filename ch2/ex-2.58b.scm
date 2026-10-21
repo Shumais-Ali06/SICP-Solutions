@@ -39,7 +39,7 @@
 (define (left-operand exp op)
     (define (iter w)
         (if (eq? (car w) op)
-            nil
+            '()
             (cons (car w)
                   (iter (cdr w)))))
 
