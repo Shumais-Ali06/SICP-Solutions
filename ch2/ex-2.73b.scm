@@ -116,24 +116,26 @@
     (put 'deriv
          '+
          (lambda (operands var)
-             (let ((first (car operands))
-                   (second (cadr operands)))
-                 (make-sum (deriv first var)
-                           (deriv second var)))))
+             (let ((addend (car operands))
+                   (augend (cadr operands)))
+                 (make-sum (deriv addend var)
+                           (deriv augend var)))))
 
     (put 'deriv
          '*
          (lambda (operands var)
-             (let ((first (car operands))
-                   (second (cadr operands)))
-                 (make-sum (make-product first
-                                         (deriv second var))
-                           (make-product second
-                                         (deriv first var)))))))
+             (let ((multiplier (car operands))
+                   (multiplicand (cadr operands)))
+                 (make-sum (make-product multiplier
+                                         (deriv multiplicand var))
+                           (make-product multiplicand
+                                         (deriv multiplier var)))))))
 
 (install-deriv-package)
 
 ; Tests
+
+; NOTE: Each operator MUST take exactly two arguments.
 
 ; x^2 + x^2 --> 2x + 2x
 (deriv '(+ (* x x) (* x x)) 'x)
