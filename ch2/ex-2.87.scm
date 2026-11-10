@@ -12,6 +12,14 @@
     (define (make-poly variable term-list) (cons variable term-list))
     (define (variable p) (car p))
     (define (term-list p) (cdr p))
+    ; Newly added code begins
+    (define (=zero-poly? p)
+        (define (zero-terms? terms)
+            (or (empty-termlist? terms)
+                (and (=zero? (coeff (first-term terms)))
+                     (zero-terms? (rest-terms terms)))))
+        (zero-terms? (term-list p)))
+    ; Newly added code ends
 
     ; ⟨procedures same-variable? and variable? from section 2.3.2⟩
     (define (variable? x) (symbol? x))
@@ -84,11 +92,6 @@
          (lambda (var terms) (tag (make-poly var terms))))
     ; Newly added code begins
     (put '=zero? '(polynomial)
-         (lambda (p)
-             (define (zero-terms? terms)
-                 (or (empty-termlist? terms)
-                     (and (=zero? (coeff (first-term terms)))
-                          (zero-terms? (rest-terms terms)))))
-             (zero-terms? (term-list p))))
-    ; Newly added code begins
+         (lambda (p) (=zero-poly? p)))
+    ; Newly added code ends
     'done)
